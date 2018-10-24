@@ -1,35 +1,29 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-	<SCRIPT LANGUAGE="Javascript"><!--
-// ***********************************************
-// Bu kodu www.TeknoEsinti.com adresinden aldınız..
-// ***********************************************
-var isNS = (navigator.appName == "Netscape") ? 1 : 0;
-var EnableRightClick = 0;
-if(isNS)
-document.captureEvents(Event.MOUSEDOWN||Event.MOUSEUP);
-function mischandler(){
-if(EnableRightClick==1){ return true; }
-else {return false; }
+<script type="text/javascript">
+
+//form tags to omit in NS6+:
+var omitformtags=["input", "textarea", "select"]
+
+omitformtags=omitformtags.join("|")
+
+function disableselect(e){
+if (omitformtags.indexOf(e.target.tagName.toLowerCase())==-1)
+return false
 }
-function mousehandler(e){
-if(EnableRightClick==1){ return true; }
-var myevent = (isNS) ? e : event;
-var eventbutton = (isNS) ? myevent.which : myevent.button;
-if((eventbutton==2)||(eventbutton==3)) return false;
+
+function reEnable(){
+return true
 }
-function keyhandler(e) {
-var myevent = (isNS) ? e : window.event;
-if (myevent.keyCode==96)
-EnableRightClick = 1;
-return;
+
+if (typeof document.onselectstart!="undefined")
+document.onselectstart=new Function ("return false")
+else{
+document.onmousedown=disableselect
+document.onmouseup=reEnable
 }
-document.oncontextmenu = mischandler;
-document.onkeypress = keyhandler;
-document.onmousedown = mousehandler;
-document.onmouseup = mousehandler;
-//-->
+
 </script>
 	
 	
@@ -37,7 +31,7 @@ document.onmouseup = mousehandler;
 	<title>Document</title>
 	<link rel="stylesheet" href="piraamid.css">
 </head>
-<body>
+<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
 	<div class="anakutu">
 
 		<div class="resim">
