@@ -68,6 +68,7 @@
 	text-align:center;
 }
 .duyuru{
+	opacity:0.8;
 	text-indent:5px;
 	width:140px;
 	height:auto;
@@ -79,4 +80,18 @@
 	font-weight:bold;
 	font-family:"comic sans ms";
 	font-size:12px;
+	}
+.uye-text{
+	width:125px;
+	background-color:#ECECEC;
+	color:red;
+	}
+.uye-text:focus{background-color:#D7F85B;
+}
+.uye-buton{
+	background-color:#DDBBEE;
+	border-radius:10px;
+	}
+.uye-buton:hover{
+	background-color:#EB0;
 	}
